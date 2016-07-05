@@ -8,6 +8,7 @@ KEY = '9ba5ffb43e60e97639d8fd555fd731e2'
 
 cities = open('city.list.json').readlines()
 
+#get the city id based on user input
 def get_city_id():
     with open('city.list.json') as f:
         data = [loads(line) for line in f]
