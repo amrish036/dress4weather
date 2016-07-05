@@ -7,3 +7,22 @@ from pprint import pprint
 KEY = '9ba5ffb43e60e97639d8fd555fd731e2'
 
 cities = open('city.list.json').readlines()
+
+#get the city id based on user input
+def get_city_id():
+    with open('city.list.json') as f:
+        data = [loads(line) for line in f]
+    city = input('which is the closest city to the place you are travelling to?')
+    city_id = False
+    for item in data:
+        if item['name'] == city:
+            answer = input('Is this in '+item['country']+'?')
+            if answer =='y':
+             city_id = item['_id']
+            break
+
+    if not city_id:
+        print('Sorry, that location is not avaliable!')
+        exit()
+    return city_id
+
