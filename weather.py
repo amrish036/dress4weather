@@ -32,3 +32,16 @@ def get_weather_data(city_id):
 
 weather = get_weather_data('7839805')
 
+def get_arrival():
+    today = datetime.now()
+    max_day = today + timedelta(days = 4)
+    print('what day of the month do you plan to arrive at your destination?')
+    print(today.strftime('%d'), '--', max_day.strftime('%d'))
+    day = input()
+    print('what hour do you plan to arrive?')
+    print('0--24')
+    hour = int(input())
+    hour = hour - hour % 3
+    arrival = today.strftime('%Y')+'--'+today.strftime('%m')+'--'+day+' '+str(hour)+':00:00'
+    return arrival
+    
