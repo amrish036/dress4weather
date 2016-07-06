@@ -26,3 +26,9 @@ def get_city_id():
         exit()
     return city_id
 
+def get_weather_data(city_id):
+    weather_data = get('http://api.openweathermap.org/data/2.5/forecast?id={}&APPID={}'.format(city_id,KEY))
+    return weather_data.json()
+
+weather = get_weather_data('7839805')
+
